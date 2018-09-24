@@ -1,0 +1,48 @@
+{{extend 'layoutmp.html'}}
+
+{{block header}}
+    <header class="container-fluid background scheda">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+{{if illustra:}}
+<img  id="illustra" src="{{=URL('download', args=illustra)}}" />
+<p class="domanda" style="width:60%">{{=domanda}}</p>
+{{else:}}
+<p class="domanda">{{=domanda}}</p>
+{{pass}}
+
+<div class="risposte">
+    {{for r in range(len(risposte)):}}
+    <a class="risposta" href="{{=URL('risposta.html/{s}/{d}/{r}'.format(s=ses_id, d=dom_id, r=bottoni[r]))}}">
+        <img src="{{=URL('static','images/{}_button.png'.format(bottoni[r]))}}">
+        <p>{{=risposte[r]}}</p>
+    </a>
+    {{pass}}
+</div>
+{{if dom_id==15:}}
+<div id='sommario'>
+    <p>Summary of your performance today:</p>
+    <p>The number of answers given is : <b>{{=len(session.risposte)}}</b></p>
+    <p>The number of correct answers given is : <b>{{=session.corrette}}</b></p>
+</div>
+{{pass}}
+<div id='refresh'>If you're seeing the old question, </br>
+try to <input type="button" value="Refresh the Page" onClick="window.location.reload()">
+</div>
+
+<!-- This can be activated to get some debug info -->
+{{if False:}}
+<p>The id  of this question is: <em>{{=dom_id}}</em></p>
+<p>The number of correct answers given is : <em>{{=session.corrette}}</em></p>
+<p>The number of answers given is : <em>{{=len(session.risposte)}}</em></p>
+<h3>Some debugging info</h3>
+{{=BEAUTIFY(response._vars)}}
+
+{{pass}}

@@ -1,0 +1,44 @@
+{{extend 'layoutmp.html'}}
+
+{{block header}}
+    <header class="container-fluid background scheda">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+<div class="indice">
+    <p id="cookie">This site uses <i>session cookies</i>, which are deleted at 
+        the end of the session (e.g. when you close your browser). 
+        You are not identified, but the cookie allows the site to remember your responses
+        within the session and provide you with a summary at the end of the lecture.
+        By continuing to use this site you accept this use of cookies. </br>
+        If you are returned here after submitting the session code, <b>ensure your browser accepts cookies</b></p>
+    <img  src="{{=URL('static','images/ARSlogo.png')}}" />
+    <p>The presenter will give a session code unique for this
+    presentation. You should enter it below, exactly as given.</p>
+    {{=form}}
+</div>
+
+
+
+<!-- This can be activated to get some debug info -->
+{{if False:}}
+<p>The id  of this question is: <em>{{#=dom_id}}</em></p>
+<p>The number of correct answers given is : <em>{{=session.corrette}}</em></p>
+<p>The number of answers given is : <em>{{=len(session.risposte)}}</em></p>
+<p>The form has: <em>{{=BEAUTIFY(form)}}</em></p>
+<h3>Some debugging info</h3>
+{{=BEAUTIFY(response._vars)}}
+
+<h2>Submitted variables</h2>
+{{=BEAUTIFY(request.vars)}}
+<h2>Accepted variables</h2>
+{{=BEAUTIFY(form.vars)}}
+<h2>Errors in form</h2>
+{{=BEAUTIFY(form.errors)}}
+{{pass}}

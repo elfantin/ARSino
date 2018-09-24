@@ -1,0 +1,68 @@
+{{extend 'layoutmp.html'}}
+
+{{block header}}
+    <header class="container-fluid background consolle">
+      <div>
+          <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </div>
+    </header>
+    <!-- This is the bar with the questions of the selected session (never too many!) -->
+    <div class='dropdown'>
+      <button class="dropbtn">Questions in session <b>{{=session_code}}</b></button>
+          <div class="dropdown-content">
+
+        {{for d in range(len(domtesti)):}}
+        <a id='D{{=dom_ids[d]}}' href="{{=URL('consolle.html/{s}/{d}'.format(s=ses_id,d=dom_ids[d]))}}">{{=domtesti[d]}}</a>
+        {{pass}}
+        <a id='D15' href="{{=URL('consolle.html/{s}/15'.format(s=ses_id))}}">{{=T("Deactivate all Qs in session")}}</a>
+        </div>
+    </div>
+
+{{end}}
+
+{{if illustra:}}
+<img  id="illustra" class="consolle" src="{{=URL('download', args=illustra)}}" />
+<p style="width:60%" class="domanda">{{=domanda}}</p>
+{{else:}}
+<p style="width:100%" class="domanda">{{=domanda}}</p>
+{{pass}}
+
+<div class="risposte"><ol type='A'>
+    {{for r in range(len(risposte)):}}
+    <div class="risposta">
+        <li>{{=risposte[r]}}</li>
+    </div>
+    {{pass}}
+</ol></div>
+<div id='risultati'>
+    {{for r in range(len(risposte)):}}
+    <div class="risultato">
+        <div class='bottone' style="background-image: url({{=URL('static','images/{}_button.png'.format(bottoni[r]))}})"></div>
+        <div class='barra barra_{{=bottoni[r]}}' style='width: {{=largo[r]*0.8}}%'>{{=int(round(largo[r]))}}%</div>
+    </div>
+    {{pass}}
+</div>
+<!-- This is my status bar -->
+<div id='barrastato' class='navbar-fixed-bottom'>
+    <div id='barsesid'>Session: {{=ses_id}}</div>
+    <div id='bardomid'>Question: {{=dom_id}} </div>
+    <div id='barresp'>Respondents: {{=totale}} </div>
+</div>
+
+<!-- This can be activated to get some debug info -->
+{{if False:}}
+<h2>{{=' '.join(x.capitalize() for x in request.function.split('_'))}}</h2>
+{{if len(response._vars)==1:}}
+{{=BEAUTIFY(response._vars.values()[0])}}
+{{elif len(response._vars)>1:}}
+{{=BEAUTIFY(response._vars)}}
+{{pass}}
+{{if request.is_local:}}
+{{=response.toolbar()}}
+{{pass}}
+{{pass}}

@@ -1,0 +1,32 @@
+{{extend 'layoutmp.html'}}
+{{block header}}
+    <header class="container-fluid background scheda">
+      <div class="jumbotron text-center">
+        {{if response.title:}}
+        <h1>{{=response.title}}
+          <small>{{=response.subtitle or ''}}</small></h1>
+        {{pass}}
+      </div>
+    </header>
+{{end}}
+
+<div id='risposta'>
+<h3>{{=messaggio}}</h3>
+<p class='lowvis'>The question was:</p>
+<p class="domanda">{{=domanda}}</p>
+
+<p class='lowvis'>You've responded:</p>
+<p class='risposta'>{{=risposta}}</p>
+
+<h4>{{=T("Please check the venue's screen to see how the rest of the audience responded")}}</h4>
+<div id='prossdom' class='lowvis'>{{=T("Once the presenter moves to the next question")}}</br>
+    <input type="button" value="{{=T('Press this button')}}" onClick="window.history.back()">
+</div>
+</div>
+</div>
+
+<!-- This can be activated to get some debug info -->
+{{if False:}}
+<h3>Some debugging infor</h3>
+{{=BEAUTIFY(response._vars)}}
+{{pass}}

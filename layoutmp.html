@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge{{=not request.is_local and ',chrome=1' or ''}}">
+    <title>{{=response.title or request.application}} - {{=response.subtitle}}</title>
+    <meta name="application-name" content="{{=request.application}}">
+    <meta name="author" content="{{=response.meta.author}}">
+    <meta name="description" content="{{=response.meta.description}}">
+    <meta name="keywords" content="{{=response.meta.keywords}}">
+    <!-- include stylesheets -->
+    <link rel="stylesheet" href="{{=URL('static','css/web2py.css')}}"/>
+    <link rel="stylesheet" href="{{=URL('static','css/mp.css')}}"/>
+    <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
+    <!-- {-{include 'web2py_ajax.html'}-} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
+    {{block head}}{{end}}
+  </head>
+  <body>
+    <!--[if lt IE 9]>
+    <p class="browserupgrade">You are using an browser that doesn't support many standards. Please <a href="http://browsehappy.com/">select a better one</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
+    <!-- Masthead ===================================== -->    
+    {{block header}}
+    {{end}}
+    <!-- Main ========================================= -->
+    <!-- Begin page content -->
+    <div class="container-fluid main-container">
+
+      <div class="col-md-12">
+        {{block center}}
+        {{include}}
+        {{end}}
+      </div>
+
+    </div>
+
+    {{block footer}} <!-- this is default footer -->      
+    <footer class="footer navbar-fixed-bottom">
+      <div class="container-fluid">
+        <div class="copyright pull-left">Copyright by <a href="http://pozzi.ws/">M.Pozzi</a>&#169; {{=request.now.year}}</div>
+          <div id="poweredBy" class="pull-right">
+            {{=T('Powered by')}}
+            <a href="http://www.web2py.com/">web2py</a>
+          </div>
+      </div>
+    </footer>
+    {{end}}
+    {{block page_js}}{{end page_js}}
+  </body>
+</html>
