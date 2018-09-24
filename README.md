@@ -16,8 +16,11 @@ Once you have a running installation of web2py (tested on v. 2.14.6), go to the 
 ARSino has one default privileged user: the presenter. The login name is The-Presenter@example.com, with a default password of *arsino*. You can (i.e. should) edit name, email address and password by editing the record in the database table *db.auth_user*, using standard web2py methods (see below for a bit more info).
 
 ## Usage
+### General database editing
+web2py offers a built-in powerful way to manage databases, hence it was not necessary to create custom code for this. From the design page of web2py (e.g. `/admin/default/design/ARSino`), one gets an overview of the whole web app and can edit, among many other things and files, also the database. By clicking the *database administration* button under **Models**, a list of tables is presented and a new records can be added simply by clicking the button *NEW RECORD* on the right of the table name. The fields have a short explanation which helps in their completion.
+
 ### Creating questions
-web2py offers a built-in powerful way to manage databases, hence it was not necessary to create custom code for this. From the design page of web2py (e.g. `/admin/default/design/ARSino`),  one gets an overview of the whole web app and can edit, among many other things and files, also the database. By clicking the *database administration* button under **Models**, a list of tables is present and a new question can be added simply by clicking the button *NEW RECORD* on the right of the db.domanda link. The fields have a short explanation which helps their completion. In general one should try to keep questions and answers rather short, or the layout may suffer. It is possible to add one image to the question.
+As mentioned above, by clicking the *database administration* button under **Models**, a list of tables is presented and a new question can be added simply by clicking the button *NEW RECORD* on the right of the db.domanda link. In general one should try to keep questions and answers rather short, or the layout may suffer. It is possible to add one image to the question.
 
 ### Creating a session
 The table *sessione* holds brief info about the presentation/lecture. The most important field is the session code, which will have to be given to the audience when they open the interface dedicated to them.
