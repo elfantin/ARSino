@@ -2,13 +2,17 @@
 A small, and cute, Audience Response System powered by web2py and python3
 
 ## DISCLAIMER. 
-A bigger disclaimer than usual: I am NOT a coder, I can just write some code. The code will not be elegant and may still be buggy. However, it's been used in real life scenarios, with about one hundred university students per session, and it has worked well.
+A bigger disclaimer than usual: I am NOT a coder, I can just write some code. The code will not be elegant and may still be buggy. I wrote it because I needed an ARS for my lectures, and I also had a limited time to develop it. However, it's been used in real life scenarios, with about one hundred university students per session, and it has worked well.
 
 ## Installation
 ARSino has been developed as a web app of [web2py](http://web2py.com/). Both are written in python. You need a webserver running web2py to use ARSino, luckily it is easy to get this with [pythonanywhere.com](https://www.pythonanywhere.com). It is a great service that can be used to practise python, web frameworks etc. 
+
 All the files specific to ARSino are available above for inspection. It is however recommended to use the web2py app package to install ARSino on a web server previously prepared with web2py. 
 
-Once you have a running installation of web2py (tested on v. 2.14.6), go to the web2py administrative interface, where all the apps are visible. On the right panel, work on the **Upload and install packed application** section to upload the ARSino.w2p file you can download from the list above. For more information, please refer to the [web2py documentation](http://web2py.com/init/default/documentation).
+Once you have a running installation of web2py (tested on v. 2.14.6), go to the web2py administrative interface, where all the apps are visible. On the right panel, work on the **Upload and install packed application** section to upload the ARSino.w2p\* file you can download from the list above. For more information, please refer to the [web2py documentation](http://web2py.com/init/default/documentation).
+
+\* this is a gzipped tar archive
+
 ARSino has one default privileged user: the presenter. The login name is The-Presenter@example.com, with a default password of *arsino*. You can (i.e. should) edit name, email address and password by editing the record in the database table *db.auth_user*, using standard web2py methods (see below for a bit more info).
 
 ## Usage
@@ -32,3 +36,6 @@ ARSino exploits the power of database handling offered by web2py. There are seve
 
 ### Cookies
 It is essential that the audience have their browser set to accept cookies: ARSino keeps track of each user to be able to provide end-of-session feedback and prevent double-answers. If cookies are not enabled, the users will not be able to get to the questions, being permanently stuck to the login page and asked to enter the session code.
+
+### Languages
+web2py handles different languages, however that was not needed for my purpose and the feature is not used.
