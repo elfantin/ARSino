@@ -20,6 +20,8 @@ ARSino has one default privileged user: the presenter. The login name is The-Pre
 ### The presenter's console
 The presenter's console is optimised for display on a large screen typically with a projector. A resolutions of HD or Full HD works best. It is typically found at `/consolle` or `/ARSino/default/consolle` if the web app is called ARSino and is not the [default app](http://web2py.com/book/default/chapter/04#Application-init). 
 
+![The Presenter's Console](https://github.com/elfantin/ARSino/blob/master/ConsollePiezo.png)
+
 The console is used to activate the questions and show the results. Typically the presenter would select the question with the dropdown (which is always populated with all the questions for that session). Once selected, the question is shown. The audience would then be asked to answer it on their own devices. The presenter can, at any time, refresh the page to update the results (for best results, give a specified amount of time to the audience and refresh only once or twice after it has elapsed).
 
 ### The audience interface
