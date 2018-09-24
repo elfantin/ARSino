@@ -27,6 +27,11 @@ The console is used to activate the questions and show the results. Typically th
 ### The audience interface
 When the audience visits the website they are presented with a welcome screen where they have to insert the session code, previously given by the presenter (if the app is called ARSino and is not the default one, they'd visit `http://example.com/ARSino/`). Once the session code is submitted, the active question is shown. The audience interface is optimised for mobile devices. When they touch on one of the answer-buttons, the page reloads showing the question and the answer given. On the same page, a button triggers a page reload to be used when the presenter moves on to the next question.
 
+The three main pages seen by the audience are:
+
+Login | Answer | Confirmation
+----- | ------ | ------------
+![login](https://github.com/elfantin/ARSino/blob/master/Audience_Login.png) | ![answer](https://github.com/elfantin/ARSino/blob/master/Audience_Question.png) | ![Confirmation](https://github.com/elfantin/ARSino/blob/master/Audience_Confirm.png)
 
 ### General database editing
 web2py offers a built-in powerful way to manage databases, hence it was not necessary to create custom code for this. From the design page of web2py (e.g. `/admin/default/design/ARSino`), one gets an overview of the whole web app and can edit, among many other things and files, also the database. By clicking the *database administration* button under **Models**, a list of tables is presented and a new records can be added simply by clicking the button *NEW RECORD* on the right of the table name. The fields have a short explanation which helps in their completion.
