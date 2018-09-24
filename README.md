@@ -16,6 +16,16 @@ Once you have a running installation of web2py (tested on v. 2.14.6), go to the 
 ARSino has one default privileged user: the presenter. The login name is The-Presenter@example.com, with a default password of *arsino*. You can (i.e. should) edit name, email address and password by editing the record in the database table *db.auth_user*, using standard web2py methods (see below for a bit more info).
 
 ## Usage
+
+### The presenter's console
+The presenter's console is optimised for display on a large screen typically with a projector. A resolutions of HD or Full HD works best. It is typically found at `/consolle` or `/ARSino/default/consolle` if the web app is called ARSino and is not the [default app](http://web2py.com/book/default/chapter/04#Application-init). 
+
+The console is used to activate the questions and show the results. Typically the presenter would select the question with the dropdown (which is always populated with all the questions for that session). Once selected, the question is shown. The audience would then be asked to answer it on their own devices. The presenter can, at any time, refresh the page to update the results (for best results, give a specified amount of time to the audience and refresh only once or twice after it has elapsed).
+
+### The audience interface
+When the audience visits the website they are presented with a welcome screen where they have to insert the session code, previously given by the presenter (if the app is called ARSino and is not the default one, they'd visit `http://example.com/ARSino/`). Once the session code is submitted, the active question is shown. The audience interface is optimised for mobile devices. When they touch on one of the answer-buttons, the page reloads showing the question and the answer given. On the same page, a button triggers a page reload to be used when the presenter moves on to the next question.
+
+
 ### General database editing
 web2py offers a built-in powerful way to manage databases, hence it was not necessary to create custom code for this. From the design page of web2py (e.g. `/admin/default/design/ARSino`), one gets an overview of the whole web app and can edit, among many other things and files, also the database. By clicking the *database administration* button under **Models**, a list of tables is presented and a new records can be added simply by clicking the button *NEW RECORD* on the right of the table name. The fields have a short explanation which helps in their completion.
 
