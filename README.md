@@ -4,6 +4,8 @@ A small, and cute, Audience Response System powered by web2py and python3
 ## DISCLAIMER. 
 A bigger disclaimer than usual: I am NOT a coder, I can just write some code. The code will not be elegant and may still be buggy. However, it's been used in real life scenarios, with about one hundred university students per session, and it has worked well.
 
+## Installation
+
 ## Usage
 ### Creating questions
 web2py offers a built-in powerful way to manage databases, hence it was not necessary to create custom code for this. From the design page of web2py (e.g. `/admin/default/design/ARSino`) one gets an overview of the whole web app and can edit, among many other things and files, also the database. By clicking the *database administration* button under **Models**, a list of tables is present and a new question can be added simply by clicking the button *NEW RECORD* on the right of the db.domanda link. The fields have a short explanation which helps their completion. In general one should try to keep questions and answers rather short, or the layout may suffer. It is possible to add one image to the question.
@@ -14,7 +16,8 @@ The table *sessione* holds brief info about the presentation/lecture. The most i
 ### Creating an agenda
 Once the questions and the session are created, it is necessary to indicate which of those questions will be used in each presentation/lecture session. This permits the re-use of questions in different sessions. This information is held in the OdG table. Only the first three fields need filling. The first is the human readable session code and the second is the question itself. Both are answered via a dropdown (not sure if this will get awkward with hundreds of questions or questions that are too long). The third field is a check box, indicating the question that is active at any given moment in the session; this means that only one question should be active in each session. A dropdown in the presenter's console permits to select the active question or deactivate all questions in the session. This is achieved internally setting/resetting this flag. A feedback page is presented to the each respondent if no questions are active in the session he logged into. 
 
-## Database
+## Internals (i.e. some technical details)
+### Database
 
 ARSino exploits the power of database handling offered by web2py. There are several tables defined in the database, some are standard for a web2py installation and include users, permissions, groups, etc. The tables specific for ARSino are 4:
 - *domanda*: this contains all the questions ever created, including the set of answers presented and the correct answer. It is possible to add one image to each question, the link to which will be stored in this table.
