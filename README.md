@@ -3,7 +3,7 @@ A small, and cute, Audience Response System powered by web2py and python3
 Check out a little demo site at https://arsino.pythonanywhere.com/. The presenter's console, used to activate the questions is at https://arsino.pythonanywhere.com/consolle (read below for login details).
 
 ## DISCLAIMER. 
-A bigger disclaimer than usual: I am NOT a coder, I can just write some code. The code will not be elegant and may still be buggy. I wrote it because I needed an ARS for my lectures, and I also had a limited time to develop it. However, it's been used in real life scenarios, with about one hundred university students per session, and it has worked well.
+The code will not be elegant and may still be buggy. I wrote it because I needed an ARS for my lectures, and I also had a limited time to develop it. However, it's been used in real life scenarios, with about one hundred university students per session, and it has worked well.
 
 ## Installation
 ARSino has been developed as a web app of [web2py](http://web2py.com/). Both are written in python. You need a webserver running web2py to use ARSino, luckily it is easy to get this with [pythonanywhere.com](https://www.pythonanywhere.com). It is a great service that can be used to practise python, web frameworks etc. 
