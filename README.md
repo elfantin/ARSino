@@ -60,3 +60,5 @@ It is essential that the audience have their browser set to accept cookies: ARSi
 
 ### Languages
 web2py handles different languages, however that was not needed for my purpose and the feature is not used.
+
+-
